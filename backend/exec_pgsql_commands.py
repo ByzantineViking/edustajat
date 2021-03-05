@@ -13,7 +13,9 @@ def exec_pgsql_commands(commands):
         conn = psycopg2.connect(**params)
         cur = conn.cursor()
         # create table one by one
+
         for command in commands:
+            print(f"command: {command}")
             cur.execute(command)
         # close communication with the PostgreSQL database server
         cur.close()
