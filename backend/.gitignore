@@ -1,6 +1,9 @@
 venv
 env
 .vscode
+database.ini
+fetched_data
+manual_data
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
