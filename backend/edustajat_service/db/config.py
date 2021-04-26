@@ -1,13 +1,5 @@
 #!/usr/bin/python
-from pathlib import Path
-import os
 from configparser import ConfigParser
-
-basedir = os.path.abspath(os.path.dirname(__file__))
-
-
-ROOT_PATH = Path(__file__)
-
 
 def db_config(filename='database.ini', section='postgresql'):
     # create a parser
@@ -26,27 +18,3 @@ def db_config(filename='database.ini', section='postgresql'):
             'Section {0} not found in the {1} file'.format(section, filename))
 
     return db
-
-
-class Config(object):
-    DEBUG = False
-    TESTING = False
-    CSRF_ENABLED = True
-
-
-class ProductionConfig(Config):
-    DEBUG = False
-
-
-class StagingConfig(Config):
-    DEVELOPMENT = True
-    DEBUG = True
-
-
-class DevelopmentConfig(Config):
-    DEVELOPMENT = True
-    DEBUG = True
-
-
-class TestingConfig(Config):
-    TESTING = True

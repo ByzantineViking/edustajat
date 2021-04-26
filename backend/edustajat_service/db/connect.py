@@ -1,5 +1,5 @@
 import psycopg2
-from config import db_config
+from edustajat_service.db.config import db_config
 
 # Connect to postgres
 def connect():
@@ -35,6 +35,5 @@ def connect():
             print('Database connection closed.')
 
 
-if __name__ == '__main__':
-    connect()
+
 

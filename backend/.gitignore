@@ -2,8 +2,8 @@ venv
 env
 .vscode
 database.ini
-fetched_data
-manual_data/kuntavaalit2017/master
+edustajat_service/fetched_data
+edustajat_service/manual_data/kuntavaalit2017/master
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
