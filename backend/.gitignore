@@ -1,5 +1,7 @@
 venv
 env
+
+.env
 .vscode
 database.ini
 edustajat_service/fetched_data
