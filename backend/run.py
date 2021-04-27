@@ -1,4 +1,6 @@
 import os
+from dotenv import load_dotenv
+load_dotenv() #  by default, doesn't override any existing environment variables
 from edustajat_service.db.connect import connect
 from edustajat_service.refine_data.ehdokkaat import refine_ehdokkaat
 from edustajat_service import app, port

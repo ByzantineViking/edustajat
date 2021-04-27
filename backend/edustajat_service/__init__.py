@@ -1,6 +1,7 @@
 import os
 from flask import Flask
 
+
 app = Flask(__name__,
             # 1. redirect the default static folder path to point to react
             static_folder='../frontend/build',
