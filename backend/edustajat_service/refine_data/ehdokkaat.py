@@ -2,10 +2,8 @@ from pathlib import Path
 import pandas as pd
 from edustajat_service.helpers.print import bcolors, section_print
 
-
-
-def refine_ehdokkaat():
-    data_folder = Path("../manual_data/kuntavaalit2017/master")
+def run():
+    data_folder = Path("edustajat_service/manual_data/kuntavaalit2017/master")
     ehdokkaat = data_folder / "ehd_maa.csv"
     header = data_folder / "Ehdokkaat_otsikkorivit_FI.xlsx"
 
