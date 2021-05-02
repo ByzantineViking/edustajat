@@ -9,7 +9,7 @@ def run():
 
     # Load data
     data_folder = Path("edustajat_service/manual_data/kuntavaalit2017/master")
-    ehdokkaittain = data_folder / "ehdokkaittain.csv"
+    ehdokkaittain = data_folder / "kv_2017_tulokset_ehdokkaittain_ehdokkaittain.csv"
     data = pd.read_csv(ehdokkaittain, sep=";", header=None, encoding='ISO-8859-1')
     section_print(bcolors.OKCYAN, 'Loaded data', ehdokkaittain)
 
