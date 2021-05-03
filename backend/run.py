@@ -14,6 +14,6 @@ DATABASE_URL = os.environ['DATABASE_URL']
 
 
 if __name__ == '__main__':
-    # connect()
-    ehdokkaat.run()
+    conn = connect()
+    ehdokkaat.run(conn)
     # app.run(debug=True, host='0.0.0.0', port=port)

@@ -12,7 +12,7 @@ class bcolors:
     UNDERLINE = '\033[4m'
 
 
-def section_print(color: bcolors, text: str, highlighted: str):
+def section_print(color: bcolors, text: str, highlighted:str):
     print("--------------------------------------------------------------------------------------")
     print(f"{text} : {color}{highlighted}{bcolors.ENDC}")
     print("--------------------------------------------------------------------------------------")

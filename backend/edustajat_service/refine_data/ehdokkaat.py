@@ -1,8 +1,11 @@
+from edustajat_service.helpers.print import bcolors, section_print
+from edustajat_service.db.connect import connect
 from pathlib import Path
 import pandas as pd
-from edustajat_service.helpers.print import bcolors, section_print
+from edustajat_service.sql.create_table import create_table_if_not_exists
 
-def run():
+
+def run(conn):
     data_folder = Path("edustajat_service/manual_data/kuntavaalit2017/master")
     ehdokkaat = data_folder / "ehd_maa.csv"
     header_file = data_folder / "Ehdokkaat_otsikkorivit_FI.xlsx"
@@ -13,13 +16,14 @@ def run():
 
     # drop last (empty) column
     # data = data.iloc[:, :-1]
-    data.columns = header_ehdokkaat.iloc[:, 32]
+    def sanitize(col):
+        return col.replace("/", " tai").replace("-", "")
+
+    columns = [sanitize(col) for col in header_ehdokkaat.columns[:33]]
+
+    data.columns = columns
 
 
-    # restructed_folder = Path("manual_data/kuntavaalit2017/restructured")
-    # ehdokkaat_path = restructed_folder / "ehdokkaat.csv"
-    # ehdokkaat.to_csv(ehdokkaat_path)
-    # section_print(bcolors.OKCYAN, 'Saved data to', ehdokkaat_path)
 
 
-run()
+    create_table_if_not_exists(conn, data, "ehdokkaat")
