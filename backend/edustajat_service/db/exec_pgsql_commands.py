@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import psycopg2
-from config import db_config
+from edustajat_service.db.config import db_config
 
 
 def exec_pgsql_commands(commands):
