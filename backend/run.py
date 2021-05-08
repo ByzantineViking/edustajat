@@ -13,7 +13,12 @@ port = int(os.environ.get("PORT", 5000))
 DATABASE_URL = os.environ['DATABASE_URL']
 
 
+def init_ehdokkaat_db(conn):
+    ehdokkaat.run(conn)
+    tulokset_ehdokkaittain.run(conn)
+
+
 if __name__ == '__main__':
     conn = connect()
-    ehdokkaat.run(conn)
+    # init_ehdokkaat_db(conn)
     # app.run(debug=True, host='0.0.0.0', port=port)

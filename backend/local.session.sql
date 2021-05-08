@@ -1,2 +1,2 @@
 SELECT *
-FROM kv2017_ehdokkaat;
+FROM kv2017_tulokset_ehdokkaittain;

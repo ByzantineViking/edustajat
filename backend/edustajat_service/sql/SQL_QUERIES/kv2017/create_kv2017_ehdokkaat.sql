@@ -1,5 +1,4 @@
-DROP TABLE kv2017_ehdokkaat;
-CREATE TABLE kv2017_ehdokkaat (
+CREATE TABLE IF NOT EXISTS kv2017_ehdokkaat (
     vaalipiiri_tai_maakuntanro INT,
     vaalipiirin_tai_maakunnan_lyhenne_suomeksi VARCHAR(3),
     pysyvä_puoluetunniste INT,

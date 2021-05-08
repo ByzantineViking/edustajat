@@ -1,7 +1,7 @@
 from edustajat_service.db.exec_pgsql_commands import exec_pgsql_commands
 
 
-def execute_scripts_from_file(filename):
+def execute_sql_file(filename):
     # Open and read the file as a single buffer
     fd = open(filename, 'r')
     sql_file = fd.read()

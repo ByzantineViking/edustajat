@@ -5,8 +5,8 @@ from pandasgui import show
 from edustajat_service.helpers.print import bcolors, section_print
 from edustajat_service.db.connect import connect
 from edustajat_service.sql.SQL_QUERIES.kv2017.pandas_columns_ehdokkaat import columns as selected_columns
-from edustajat_service.sql.helpers.execute_sql_file import execute_scripts_from_file
-from edustajat_service.sql.create_table import bulk_insert_stringio
+from edustajat_service.sql.helpers.execute_sql_file import execute_sql_file
+from edustajat_service.sql.table_operations import bulk_insert_stringio
 
 
 def run(conn):
@@ -45,7 +45,7 @@ def run(conn):
 
     print(data_selected_columns['kunnanvaltuutettu'].value_counts())
     # show(data_selected_columns)
-    execute_scripts_from_file(
+    execute_sql_file(
         "edustajat_service/sql/SQL_QUERIES/kv2017/create_kv2017_ehdokkaat.sql")
 
     bulk_insert_stringio(conn, data_selected_columns, "kv2017_ehdokkaat")
