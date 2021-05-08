@@ -1,6 +1,7 @@
 #!/usr/bin/python
 from configparser import ConfigParser
 
+
 def db_config(filename='database.ini', section='postgresql'):
     # create a parser
     parser = ConfigParser()

@@ -7,7 +7,7 @@ from edustajat_service.sql.create_table import create_table_if_not_exists
 
 def run(conn):
     data_folder = Path("edustajat_service/manual_data/kuntavaalit2017/master")
-    ehdokkaat = data_folder / "ehdokkaittain.csv"
+    ehdokkaat = data_folder / "ehd_maa.csv"
     header_file = data_folder / "Ehdokkaat_otsikkorivit_FI.xlsx"
     data = pd.read_csv(ehdokkaat, sep=";", header=None, encoding='ISO-8859-1')
     headers = pd.ExcelFile(header_file)

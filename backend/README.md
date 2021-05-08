@@ -1,9 +1,23 @@
 
+## Setup python package
 
-## Install packages
+### Install packages
 pip install -r requirements.txt
 pip install *package*
 pip freeze > requirements.txt
+
+### Development .env
+export APP_SETTINGS="edustajat_service.db.config.DevelopmentConfig"
+export DATABASE_URL="postgresql://localhost/edustajat_db"
+FLASK_APP=api.py
+FLASK_ENV=development
+
+### Development database.ini
+\[postgresql\]
+host=localhost
+database=db_name
+user=postgres
+password=password
 
 
 ## Running the backend.
@@ -22,7 +36,7 @@ sudo apt install postgresql
 
 ### By default the postgres user has no password can only connect if ran by the postgres sytem user. The following command will assign postgres user password.
 sudo -u postgres psql -c "ALTER USER postgres PASSWORD 'postgres';"
-sudo -u postgres psql -c "CREATE DATABASE testdb;"
+sudo -u postgres psql -c "CREATE DATABASE edustajat_db;"
 
 ### Creating a postgres system user
 sudo -u postgres createuser -s postgres

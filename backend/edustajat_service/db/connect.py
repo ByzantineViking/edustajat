@@ -2,6 +2,8 @@ import psycopg2
 from edustajat_service.db.config import db_config
 
 # Connect to postgres
+
+
 def connect():
     """ Connect to the PostgreSQL database server """
     conn = None
@@ -34,7 +36,3 @@ def connect():
     #     if conn is not None:
     #         conn.close()
     #         print('Database connection closed.')
-
-
-
-
