@@ -2,6 +2,7 @@
 
 import psycopg2
 from edustajat_service.db.config import db_config
+from edustajat_service.helpers.print import bcolors, section_print
 
 
 def exec_pgsql_commands(commands):
@@ -14,9 +15,11 @@ def exec_pgsql_commands(commands):
         cur = conn.cursor()
         # create table one by one
         for command in commands:
-            print(f"command: {command}")
+            # print(f"command: {command}")
             cur.execute(command)
         # close communication with the PostgreSQL database server
+        section_print(bcolors.OKGREEN,
+                      f"{len(commands)} sql command(s) executed succesfully", " OK")
         cur.close()
         # commit the changes
         conn.commit()

@@ -2,6 +2,8 @@ from edustajat_service.db.exec_pgsql_commands import exec_pgsql_commands
 from edustajat_service.sql.helpers.execute_sql_file import execute_scripts_from_file
 import psycopg2
 from psycopg2.extras import execute_values
+from io import StringIO
+from edustajat_service.helpers.print import bcolors, section_print
 
 
 def create_tables():
@@ -9,23 +11,25 @@ def create_tables():
     execute_scripts_from_file("./sql/create_tables.sql")
 
 
-def create_table_if_not_exists(conn, df, table_name):
+def bulk_insert_stringio(conn, df, table):
     """
     Using psycopg2.extras.execute_values() to insert the dataframe
     """
-    create_table_str = "CREATE TABLE IF NOT EXISTS {} ({});".format(
-        table_name, ', '.join(df.columns))
-
-    # query = "INSERT INTO \"%s\" (%s) VALUES %%s" % (table_name, cols)
+    # Create a list of tupples from the dataframe values
+    tuples = [tuple(x) for x in df.to_numpy()]
+    # Comma-separated dataframe columns
+    cols = ','.join(list(df.columns))
+    # SQL quert to execute
+    query = "INSERT INTO %s(%s) VALUES %%s" % (table, cols)
     cursor = conn.cursor()
     try:
-        cursor.execute(create_table_str)
-        # execute_values(cursor, query, tuples)
+        execute_values(cursor, query, tuples)
         conn.commit()
     except (Exception, psycopg2.DatabaseError) as error:
+        section_print(bcolors.WARNING, "Bulk insert status", "ERROR")
         print("Error: %s" % error)
         conn.rollback()
         cursor.close()
         return 1
-    print("execute_values() done")
+    section_print(bcolors.OKGREEN, "Bulk insert status", "OK")
     cursor.close()

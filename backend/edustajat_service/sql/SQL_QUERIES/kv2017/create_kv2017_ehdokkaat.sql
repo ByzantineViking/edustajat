@@ -1,11 +1,12 @@
-CREATE TABLE IF NOT EXISTS kv2017_ehdokkaat (
+DROP TABLE kv2017_ehdokkaat;
+CREATE TABLE kv2017_ehdokkaat (
     vaalipiiri_tai_maakuntanro INT,
     vaalipiirin_tai_maakunnan_lyhenne_suomeksi VARCHAR(3),
-    pysyvä_puoletunniste INT,
+    pysyvä_puoluetunniste INT,
     vakiopuoluenumero INT,
     listajärjestysnumero INT,
     vaaliliittonumero INT,
-    puolueen_tairyhmän_nimilyhenne_suomeksi INT,
+    puolueen_tairyhmän_nimilyhenne_suomeksi TEXT,
     ehdokasnumero INT,
     kunnan_taivaalipiirin_tai_maakunnan_tai_äänestysalueen_nimi_suomeksi TEXT,
     henkilön_etunimi TEXT,
@@ -16,7 +17,7 @@ CREATE TABLE IF NOT EXISTS kv2017_ehdokkaat (
     kotikunnan_koodi INT,
     kotikunnan_nimi_suomeksi TEXT,
     ehdokkaan_äidinkieli TEXT,
-    europarlaamentaarikko BOOLEAN,
+    europarlamentaarikko BOOLEAN,
     kansanedustaja BOOLEAN,
     kunnanvaltuutettu BOOLEAN,
     vaalitapahtuman_nimilyhenne_1_vertailuvaali TEXT,
