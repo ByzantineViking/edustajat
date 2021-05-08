@@ -13,7 +13,6 @@ def exec_pgsql_commands(commands):
         conn = psycopg2.connect(**params)
         cur = conn.cursor()
         # create table one by one
-
         for command in commands:
             print(f"command: {command}")
             cur.execute(command)
@@ -26,4 +25,3 @@ def exec_pgsql_commands(commands):
     finally:
         if conn is not None:
             conn.close()
-

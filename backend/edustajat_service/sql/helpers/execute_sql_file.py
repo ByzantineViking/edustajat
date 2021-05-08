@@ -1,5 +1,6 @@
 from edustajat_service.db.exec_pgsql_commands import exec_pgsql_commands
 
+
 def execute_scripts_from_file(filename):
     # Open and read the file as a single buffer
     fd = open(filename, 'r')
@@ -8,6 +9,5 @@ def execute_scripts_from_file(filename):
     # all SQL commands (split on ';')
     sql_commands = sql_file.split(';')
 
-    sql_commands = list(filter(lambda x: not str.isspace(x), sql_commands))
-
+    sql_commands = [x for x in sql_commands if x.strip()]
     exec_pgsql_commands(sql_commands)

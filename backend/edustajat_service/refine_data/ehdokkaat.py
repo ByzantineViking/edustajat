@@ -3,6 +3,9 @@ from edustajat_service.db.connect import connect
 from pathlib import Path
 import pandas as pd
 from edustajat_service.sql.create_table import create_table_if_not_exists
+from pandasgui import show
+from edustajat_service.sql.SQL_QUERIES.kv2017.pandas_columns_ehdokkaat import columns as selected_columns
+from edustajat_service.sql.helpers.execute_sql_file import execute_scripts_from_file
 
 
 def run(conn):
@@ -17,10 +20,13 @@ def run(conn):
     # drop last (empty) column
     # data = data.iloc[:, :-1]
     def sanitize(col):
-        return col.replace("/", " tai").replace("-", "")
+        return col.replace("/", " tai").replace("-", "").replace(" ", "_").replace(".", "").lower()
 
     columns = [sanitize(col) for col in header_ehdokkaat.columns[:33]]
 
     data.columns = columns
+    data_selected_columns = data[selected_columns]
 
-    create_table_if_not_exists(conn, data, "ehdokkaat")
+    # show(data_selected_columns)
+    execute_scripts_from_file(
+        "edustajat_service/sql/SQL_QUERIES/kv2017/create_kv2017_ehdokkaat.sql")

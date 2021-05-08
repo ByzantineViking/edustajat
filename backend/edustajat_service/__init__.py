@@ -8,6 +8,5 @@ app = Flask(__name__,
             # 2. serve without static prefix
             static_url_path='/')
 
-print(os.environ['APP_SETTINGS'])
 app.config.from_object(os.environ['APP_SETTINGS'])
 app.config['JSON_AS_ASCII'] = False  # Add UTF-8 support
