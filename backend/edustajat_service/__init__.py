@@ -7,7 +7,6 @@ app = Flask(__name__,
             static_folder='../frontend/build',
             # 2. serve without static prefix
             static_url_path='/')
+
 app.config.from_object(os.environ['APP_SETTINGS'])
 app.config['JSON_AS_ASCII'] = False  # Add UTF-8 support
-
-

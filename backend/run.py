@@ -1,10 +1,10 @@
-import os
 from dotenv import load_dotenv
-load_dotenv() #  by default, doesn't override any existing environment variables
+load_dotenv()  # by default, doesn't override any existing environment variables
 
+
+import os
 from edustajat_service.db.connect import connect
 from edustajat_service.refine_data import ehdokkaat, tulokset_ehdokkaittain
-
 
 
 # Take HEROKU PORT
