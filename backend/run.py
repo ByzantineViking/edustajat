@@ -20,5 +20,5 @@ def init_ehdokkaat_db(conn):
 
 if __name__ == '__main__':
     conn = connect()
-    # init_ehdokkaat_db(conn)
-    # app.run(debug=True, host='0.0.0.0', port=port)
+    init_ehdokkaat_db(conn)
+    app.run(debug=True, host='0.0.0.0', port=port)

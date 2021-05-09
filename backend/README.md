@@ -56,6 +56,20 @@ psql edustajat_db postgres
 - \d - list tables
 - \di - list indices
 - \list - list databases
+- \dS *table_name* - columns in a table
+- 
+    1. \x - Toggle display mode
+    2. TABLE *table_name*; - Show data points in a table
 
 ### Stopping the server
 sudo service postgresql stop
+
+
+## Access heroku database
+- see db used: heroku addons
+- detailed posgres info: (watch) heroku pg:info
+- app logs: heroku logs -t
+- db logs: heroku logs -p postgres -t
+
+## Establish db connection
+heroku pg:psql

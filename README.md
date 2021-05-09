@@ -1,5 +1,6 @@
 # Edustajat
 
-Ylläpitäjä: Teemu Saravirta
-2021
+## Set heroku default app
+git config heroku.remote heroku
+heroku git:remote --app edustajat
 
