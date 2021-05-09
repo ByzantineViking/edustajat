@@ -8,7 +8,6 @@ def index():
     return app.send_static_file('index.html')
 
 
-
 @app.route('/time')
 def get_current_time():
     return {'time': time.time()}
@@ -27,9 +26,3 @@ def municipalities():
 @app.route('/representative', methods=['POST'])
 def representatives():
     return 'representatives'
-
-
-
-
-
-

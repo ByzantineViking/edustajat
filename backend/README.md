@@ -73,3 +73,11 @@ sudo service postgresql stop
 
 ## Establish db connection
 heroku pg:psql
+
+## Keeping local database up to date with heroku
+As system user postgres:
+1. Drop the local database
+psql
+DROP DATABASE IF EXISTS edustajat_db;
+2. Pull heroku database
+heroku pg:pull DATABASE_URL edustajat_db

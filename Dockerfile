@@ -24,4 +24,4 @@ COPY /backend ./
 RUN pip3 install -qq -r requirements.txt
 
 ENTRYPOINT ["python3"]
-CMD ["api.py"]
+CMD ["run.py"]
